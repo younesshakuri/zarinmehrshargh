@@ -1,0 +1,614 @@
+
+/* ==============================
+   تنظیمات اصلی
+============================== */
+
+:root {
+    --bg: #10120f;
+    --panel: rgba(255, 255, 255, 0.045);
+    --gold: #c9a86a;
+    --gold-light: #ead6a9;
+    --text: #f4f0e7;
+    --muted: #a8a69d;
+    --line: rgba(201, 168, 106, 0.22);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(113, 92, 48, .18),
+            transparent 43%
+        ),
+        linear-gradient(
+            145deg,
+            #171a15 0%,
+            var(--bg) 48%,
+            #0b0d0b 100%
+        );
+
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==============================
+   نورهای پس زمینه
+============================== */
+
+.ambient {
+    position: fixed;
+
+    width: 360px;
+    height: 360px;
+
+    border-radius: 50%;
+    filter: blur(100px);
+
+    opacity: .11;
+
+    pointer-events: none;
+}
+
+.ambient-one {
+    top: 15%;
+    right: -230px;
+    background: #d0a75c;
+}
+
+.ambient-two {
+    bottom: 5%;
+    left: -240px;
+    background: #6d8052;
+}
+
+
+/* ==============================
+   ساختار اصلی صفحه
+============================== */
+
+.page-shell {
+    width: min(100% - 36px, 760px);
+
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==============================
+   هدر سایت
+============================== */
+
+.topbar {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 27px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.brand-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.brand-mark {
+    width: 29px;
+    height: 29px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    color: var(--gold-light);
+
+    font-size: 17px;
+}
+
+.top-label {
+    color: #8f9087;
+    font-size: 11px;
+    letter-spacing: .4px;
+}
+
+
+/* ==============================
+   بخش معرفی
+============================== */
+
+.hero {
+    text-align: center;
+
+    padding: 62px 0 43px;
+}
+
+.eyebrow {
+    color: var(--gold);
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.eyebrow-line {
+    width: 27px;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+/* نشان مرکزی */
+
+.emblem {
+    width: 104px;
+    height: 104px;
+
+    margin: 28px auto 19px;
+
+    border: 1px solid rgba(201,168,106,.62);
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    position: relative;
+
+    box-shadow:
+        0 0 0 7px rgba(201,168,106,.045),
+        0 0 45px rgba(201,168,106,.10);
+
+    animation: emblemGlow 4s ease-in-out infinite;
+}
+
+.emblem-ring {
+    position: absolute;
+
+    inset: 7px;
+
+    border: 1px dashed rgba(201,168,106,.45);
+
+    border-radius: 50%;
+}
+
+.emblem-letter {
+    color: var(--gold-light);
+
+    font-size: 53px;
+    font-weight: 300;
+
+    line-height: 1;
+}
+
+.emblem-spark {
+    position: absolute;
+
+    top: 9px;
+    right: 17px;
+
+    color: var(--gold);
+
+    font-size: 13px;
+}
+
+
+/* نام انگلیسی */
+
+.english-name {
+    margin: 0 0 13px;
+
+    color: #b9a77f;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 11px;
+    letter-spacing: 4px;
+
+    direction: ltr;
+}
+
+
+/* عنوان اصلی */
+
+h1 {
+    margin: 0;
+
+    font-size: clamp(29px, 6vw, 43px);
+
+    line-height: 1.55;
+
+    font-weight: 700;
+}
+
+h1 span {
+    color: var(--gold-light);
+}
+
+
+/* توضیحات */
+
+.intro {
+    max-width: 430px;
+
+    margin: 14px auto 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 2.2;
+
+    font-weight: 300;
+}
+
+
+/* خط تزئینی */
+
+.hero-rule {
+    margin: 31px auto 0;
+
+    width: 100px;
+    height: 1px;
+
+    background: var(--line);
+
+    position: relative;
+}
+
+.hero-rule span {
+    position: absolute;
+
+    width: 25px;
+    height: 2px;
+
+    background: var(--gold);
+
+    top: -1px;
+    left: calc(50% - 12px);
+}
+
+
+/* ==============================
+   بخش ارتباطات
+============================== */
+
+.contact-section {
+    max-width: 510px;
+
+    margin: 0 auto;
+
+    padding: 10px 0 20px;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 23px;
+}
+
+.section-kicker {
+    color: var(--gold);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    direction: ltr;
+
+    display: block;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+
+    margin: 8px 0 3px;
+
+    font-weight: 600;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    margin: 0;
+
+    font-size: 12px;
+}
+
+
+/* لیست کارت ها */
+
+.contact-list {
+    display: grid;
+    gap: 12px;
+}
+
+
+/* طراحی کارت ارتباطی */
+
+.contact-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-height: 83px;
+
+    padding: 15px 18px;
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    border-radius: 15px;
+
+    background: var(--panel);
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* افکت حرکت هنگام هاور */
+
+.contact-card:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(201,168,106,.55);
+
+    background: rgba(201,168,106,.075);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+
+/* آیکون کارت */
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    border-radius: 12px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--gold-light);
+
+    background: rgba(201,168,106,.10);
+
+    border: 1px solid rgba(201,168,106,.16);
+}
+
+.contact-icon svg {
+    width: 21px;
+    height: 21px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.5;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* متن کارت */
+
+.contact-copy {
+    display: grid;
+
+    gap: 4px;
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+.contact-copy strong {
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.contact-copy small {
+    font-size: 11px;
+
+    color: var(--muted);
+
+    direction: ltr;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* فلش */
+
+.card-arrow {
+    color: var(--gold);
+
+    font-size: 21px;
+
+    direction: ltr;
+}
+
+
+/* پیام پایین کارت ها */
+
+.contact-note {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #85877e;
+
+    font-size: 10px;
+
+    margin: 21px 0 0;
+}
+
+.note-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 9px var(--gold);
+}
+
+
+/* ==============================
+   فوتر
+============================== */
+
+.footer {
+    text-align: center;
+
+    padding: 37px 0 27px;
+
+    color: #7f8179;
+
+    font-size: 10px;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--line),
+        transparent
+    );
+
+    margin-bottom: 19px;
+}
+
+.footer p {
+    margin: 0 0 5px;
+}
+
+.footer-caption {
+    color: #65675f;
+}
+
+
+/* ==============================
+   انیمیشن ها
+============================== */
+
+@keyframes emblemGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 0 7px rgba(201,168,106,.045),
+            0 0 25px rgba(201,168,106,.08);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 10px rgba(201,168,106,.06),
+            0 0 45px rgba(201,168,106,.18);
+    }
+}
+
+
+/* ==============================
+   طراحی موبایل
+============================== */
+
+@media (max-width: 520px) {
+
+    .page-shell {
+        width: min(100% - 28px, 760px);
+    }
+
+    .topbar {
+        padding: 20px 0;
+    }
+
+    .top-label {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 48px 0 35px;
+    }
+
+    .emblem {
+        width: 91px;
+        height: 91px;
+
+        margin-top: 24px;
+    }
+
+    .emblem-letter {
+        font-size: 47px;
+    }
+
+    .contact-card {
+        min-height: 77px;
+
+        padding: 13px 14px;
+
+        gap: 12px;
+    }
+
+    .contact-icon {
+        width: 41px;
+        height: 41px;
+
+        flex-basis: 41px;
+    }
+
+}
